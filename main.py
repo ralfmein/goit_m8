@@ -19,6 +19,9 @@ def get_birthdays_per_week(users):
         name = user['name']
         birthday = user['birthday']
         print(name, birthday)
+        birthday = birthday.replace(year=today.year)
+        if birthday < today:
+            birthday = birthday.replace(year=today.year + 1)
 
         if start_of_week <= birthday <= end_of_week:
             day_of_week = birthday.strftime('%A')
